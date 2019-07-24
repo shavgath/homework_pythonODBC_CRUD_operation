@@ -65,7 +65,6 @@ class Northwind():
 
         try:
             my_db.cursor.execute("SELECT * FROM Spartan")
-
             while True:
                 row = my_db.cursor.fetchone()
                 if not row:
@@ -88,6 +87,7 @@ class Northwind():
             my_db.cursor.execute("SELECT * FROM Spartan WHERE SpartanID = ?", spartan_id)
             while True:
                 row = my_db.cursor.fetchone()
+                col = my_db.cursor.description()
                 if not row:
                     break
                 print(row)
@@ -116,7 +116,7 @@ class Northwind():
                 row = my_db.cursor.fetchone()
                 if not row:
                     print("There was no data in the Sparta Table \n")
-                    run.delete()
+                    #run.delete()
                 print(row)
                 print("\n *Data was found in the Sparta Table* \n")
                 choice = input("Are you sure you want to delete?    Y = Yes,  N = No \n")
@@ -134,8 +134,8 @@ class Northwind():
             exit()
 
 #TODO: DELETE
-run = Northwind()
-run.delete()
+# run = Northwind()
+# run.delete()
 
 #TODO: UPDATE
 # run = Northwind()
